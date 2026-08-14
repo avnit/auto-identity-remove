@@ -591,3 +591,24 @@ npm run review:cross-model        # review the current diff with a non-Anthropic
 ## License
 
 MIT - see [LICENSE](LICENSE).
+
+<!-- ARCH-DIAGRAM:START -->
+
+## Architecture
+
+> Auto-generated architecture diagram. See [`docs/context-map.md`](docs/context-map.md) for the full context map (core application, containers/cloud, and database connections).
+
+```mermaid
+flowchart TD
+  User([User / Client])
+  UI["Frontend:22/465/587<br/>Next.js"]
+  App["auto-identity-remove<br/><small>server.js</small><br/>Express / Node"]
+  SVC0["Cloudflare Workers"]
+  Img["Container image<br/>(Docker/Compose)"]
+  User --> UI
+  UI --> App
+  App --> SVC0
+  App -.deploy.-> Img
+```
+
+<!-- ARCH-DIAGRAM:END -->
